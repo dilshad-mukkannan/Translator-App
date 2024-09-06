@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
-// import { Link } from "react-router-dom";
+import { FaBrain } from "react-icons/fa";
 import Sidebar from "../atom/Sidebar";
 
 const API_KEY = "AIzaSyC1ecYqWfsKLJgdnuucwQU5mZv_00Vd4WQ";
@@ -8,6 +8,10 @@ const ChatBot = () => {
     const [userResponse, setUserResponse] = useState("");
     const [modelResponse, setModelResponse] = useState("");
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+    const userResponseRef = useRef("");
+    const buttonRef = useRef<HTMLButtonElement>(null);
+
 
     const handleResponse = async () => {
         try {
@@ -22,6 +26,8 @@ const ChatBot = () => {
             if (result && result.response && typeof result.response.text === 'function') {
                 const responseText = result.response.text();
                 setModelResponse(responseText);
+                setUserResponse("");
+                userResponseRef.current = userResponse;
             }
         } catch (error) {
             console.error("Error fetching response:", error);
@@ -31,6 +37,13 @@ const ChatBot = () => {
     const toggleSidebar = () => {
         setIsSidebarOpen(!isSidebarOpen);
     };
+
+    const handleKeydown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+        if (event.key == "Enter") {
+            if (buttonRef.current) {buttonRef.current.click()}
+        }
+            
+    }
 
     return (
         <div className="flex min-h-screen bg-gray-100">
@@ -56,16 +69,21 @@ const ChatBot = () => {
                             />
                         </svg>
                     </button>
-                    <h1 className="text-lg font-semibold text-gray-700">
-                        Chat Interface
+                    <div className="flex flex-row">
+                    <FaBrain size={40}/><h1 className="text-xl font-semibold text-gray-700 pt-2 pl-1">
+                        MyGPT Model
                     </h1>
+                    </div>
+                    <h2 className="font-semibold text-gray-500">
+                        Version 1.0
+                    </h2>
                 </div>
                 <main className="flex-1 p-4">
                     <div className="flex flex-col h-full bg-white rounded-lg shadow-md overflow-hidden">
                         <div className="flex-1 overflow-y-auto p-4 border-b border-gray-200">
                             <div className="mb-2">
                                 <div className="p-2 bg-green-200 rounded-lg text-right">
-                                    {userResponse}
+                                    { userResponse ? userResponse : userResponseRef.current}
                                 </div>
                                 <div className="p-2 bg-gray-200 rounded-lg mt-2">
                                     {modelResponse}
@@ -77,12 +95,14 @@ const ChatBot = () => {
                                 type="text"
                                 value={userResponse}
                                 onChange={(e) => setUserResponse(e.target.value)}
+                                onKeyDown={handleKeydown}
                                 className="flex-1 p-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 placeholder="Type your message..."
                             />
                             <button
                                 onClick={handleResponse}
-                                className="bg-blue-600 text-white p-2 rounded-r-lg hover:bg-blue-700 transition"
+                                ref={buttonRef}
+                                className="bg-[#00cc99] text-white p-2 rounded-r-lg hover:bg-blue-700 transition"
                             >
                                 Send
                             </button>

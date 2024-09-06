@@ -3,17 +3,14 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 import translate from "../../utilities/translate";
 import SelectDropDown from "../../atom/SelectDropdown";
 
-// Replace with your API key
 const API_KEY = "AIzaSyC1ecYqWfsKLJgdnuucwQU5mZv_00Vd4WQ";
-
-// Define types for state variables
 
 const ImageExtractor: React.FC = () => {
   const [result, setResult] = useState<string>("");
   const [transResult, setTransResult] = useState<string[]>([]);
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string>("");
-  const [outputLn, setOutputLn] = useState<string>("es");
+  const [outputLn, setOutputLn] = useState<string>("");
 
   const handleTranslation = async () => {
     const translation = await translate(result, outputLn);
@@ -87,8 +84,8 @@ const ImageExtractor: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center p-6">
-      <div className="bg-white rounded-lg shadow-lg p-8 max-w-lg w-full">
+    <div className="min-h-screen bg-gray-100 flex flex-col items-center p-6 justify-center">
+      <div className="bg-[#ece2b1] rounded-lg shadow-lg p-8 w-full max-w-md md:max-w-2xl lg:max-w-4xl xl:max-w-6xl">
         <h1 className="text-2xl font-bold text-gray-800 mb-6 text-center">
           Image Extractor
         </h1>
@@ -99,31 +96,40 @@ const ImageExtractor: React.FC = () => {
           className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none mb-4"
           onChange={(e) => setImageFile(e.target.files?.[0] || null)}
         />
+        {imageFile && (
+        <SelectDropDown
+          outputLn={outputLn}
+          setOutputLn={setOutputLn}
+          className="w-full bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition duration-300 mb-6"
+        />
+      )}
 
-        <SelectDropDown outputLn={outputLn} setOutputLn={setOutputLn} className="w-full bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition duration-300 mb-6"/>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {imagePreview && (
+            <div className="flex items-center justify-center text-center">
+              {outputLn && (
+              <img
+                src={imagePreview}
+                alt="Image preview"
+                className="max-w-full max-h-full object-cover rounded-lg shadow-md"
+              />
+            )}
+            </div>
+          )}
 
-        {transResult.length > 0 && (
-          <div>
-            <h2 className="text-lg font-semibold text-gray-700 mb-2">
-              Translated Result:
-            </h2>
-            <ul className="list-disc list-inside text-gray-600">
-              {transResult.map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
-            </ul>
-          </div>
-        )}
-
-        {imagePreview && (
-          <div className="mt-6 text-center">
-            <img
-              src={imagePreview}
-              alt="Image preview"
-              className="inline-block max-w-full h-auto rounded-lg shadow-md"
-            />
-          </div>
-        )}
+          {transResult.length > 0 && (
+            <div className="overflow-y-auto max-h-96 p-4 bg-gray-50 rounded-lg shadow-inner">
+              <h2 className="text-lg font-semibold text-gray-700 mb-2">
+                Translated Result:
+              </h2>
+              <ul className="list-disc list-inside text-gray-600">
+                {transResult.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

@@ -11,7 +11,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import SelectDropDown from '../../atom/SelectDropdown'
 import { useAppSelector } from '../../store/hooks'
 
-import Modal from '../Modal'
+import Modal from "./Modal"
 
 
 function Chat() {
@@ -30,7 +30,7 @@ function Chat() {
   };
 
   if (loading) {
-    return <Loader />; // Show the loader while the auth state is being checked
+    return <Loader />;
   }
 
   return (

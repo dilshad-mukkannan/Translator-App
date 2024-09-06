@@ -47,7 +47,7 @@ const PDFViewer = () => {
   const [pageNumber, setPageNumber] = useState<number>(1);
   const [selectedText, setSelectedText] = useState<string>("");
   const [transText, setTransText] = useState<string>();
-  const [outputLn, setOutputLn] = useState<string>("es");
+  const [outputLn, setOutputLn] = useState<string>("en");
   const [paneDimensions, setPaneDimensions] = useState({ width: 0, height: 0 });
   const [summary, setSummary] = useState<string>("");
 
@@ -168,7 +168,7 @@ const PDFViewer = () => {
                 type="button"
                 disabled={pageNumber <= 1}
                 onClick={previousPage}
-                className="py-[10px] px-[20px] bg-[#007BFF] text-white border-none rounded cursor-pointer"
+                className="py-[10px] px-[20px] bg-[#999933] text-white border-none rounded cursor-pointer"
               >
                 Previous
               </button>
@@ -179,7 +179,7 @@ const PDFViewer = () => {
                 type="button"
                 disabled={pageNumber >= numPages}
                 onClick={nextPage}
-                className="py-[10px] px-[20px] bg-[#007BFF] text-white border-none rounded cursor-pointer"
+                className="py-[10px] px-[20px] bg-[#999933] text-white border-none rounded cursor-pointer"
               >
                 Next
               </button>
@@ -189,11 +189,9 @@ const PDFViewer = () => {
       </div>
       <div className="rightPane flex-1 flex flex-col bg-white p-5 rounded-lg overflow-auto w-full lg:w-3/5 flex-shrink-0">
         <SelectDropDown outputLn={outputLn} setOutputLn={setOutputLn} className="w-full bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition duration-300 mb-2"/>
-        {/* <h2>Translated Text</h2> */}
+        
         <div className="mt-[8px] p-[15px] bg-[#f0f0f0] rounded-lg  flex flex-col space-y-4">
-          {/* <div className="flex-1 m-3 overflow-auto">
-      {transText}
-    </div> */}
+          
 
           <div className="flip-card flex-1 m-3 overflow-auto bg-transparent border-solid border-[#flflfl] no-scrollbar">
             <div className="flip-card-inner relative w-full h-full text-center ">
@@ -250,15 +248,4 @@ const PDFViewer = () => {
 
 export default PDFViewer;
 
-// <div className="flip-card bg-transparent border-solid border-[#flflfl]">
-//   <div className="flip-card-inner relative w-full h-full text-center ">
-//     <div className="flip-card-front absolute w-full h-full">
-//     {transText}
-//     </div>
-//     <div className="flip-card-back absolute w-full h-full">
-//       <h1>John Doe</h1>
-//       <p>Architect & Engineer</p>
-//       <p>We love that guy</p>
-//     </div>
-//   </div>
-// </div>
+

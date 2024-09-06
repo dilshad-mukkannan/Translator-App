@@ -39,8 +39,8 @@ body {
   min-height: 100vh;
   background-image: url("./components/img/whatsappBg.jpg");
   background-attachment: fixed;
-  background-color: #e5ddd5; /* Light background color similar to WhatsApp */
-  color: #4a4a4a; /* Dark text color */
+  background-color: #e5ddd5; 
+  color: #4a4a4a; 
   padding-top: 60px;
 }
 
@@ -50,8 +50,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #075e54; /* WhatsApp green color */
-  color: #ffffff; /* White text color */
+  background-color: #075e54; 
+  color: #ffffff; 
   height: 60px;
   position: fixed;
   left: 0;
@@ -70,9 +70,9 @@ body {
 .sign-out {
   padding: 5px 10px;
   border-radius: 5px;
-  color: #ffffff; /* White text color */
-  border: 1px solid #075e54; /* WhatsApp green border */
-  background-color: #25d366; /* Lighter green for the sign-out button */
+  color: #ffffff; 
+  border: 1px solid #075e54; 
+  background-color: #25d366; 
   font-weight: 600;
 }
 
@@ -82,15 +82,15 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: #ece5dd; /* Lighter background color */
-  /* background-image: url("./components/img/bg.jpg"); Add a subtle WhatsApp-like background */
+  background-color: #ece5dd; 
+  /* background-image: url("./components/img/bg.jpg");
   /* background-repeat: no-repeat; */
   background-attachment: fixed;
-  color: #075e54; /* WhatsApp green color */
+  color: #075e54; 
 }
 
 .welcome-content {
-  background: rgba(255, 255, 255, 0.85); /* Light white background for better readability */
+  background: rgba(255, 255, 255, 0.85); 
   padding: 40px 30px;
   border-radius: 10px;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
@@ -109,7 +109,7 @@ body {
 .welcome p {
   font-size: 1.2rem;
   margin-bottom: 30px;
-  color: #128c7e; /* Complementary color for the text */
+  color: #128c7e;
 }
 
 /* chat component */
@@ -120,11 +120,11 @@ body {
 .chat-bubble {
   border-radius: 20px 20px 20px 0;
   padding: 15px;
-  background-color: #ffffff; /* White chat bubble */
-  color: #303030; /* Dark text color */
+  background-color: #ffffff; 
+  color: #303030; 
   width: max-content;
   max-width: calc(100% - 50px);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); 
   display: flex;
   align-items: flex-start;
   margin-bottom: 20px;
@@ -132,7 +132,7 @@ body {
 .chat-bubble.right {
   margin-left: auto;
   border-radius: 20px 20px 0 20px;
-  background-color: #dcf8c6; /* Light green for sent messages */
+  background-color: #dcf8c6; 
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
 .chat-bubble__left {
@@ -145,7 +145,7 @@ body {
   font-weight: bold;
   margin-bottom: 5px;
   font-size: 0.9rem;
-  color: #075e54; /* WhatsApp green color */
+  color: #075e54; 
 }
 .user-message {
   word-break: break-all;
@@ -153,7 +153,7 @@ body {
 .message-time {
   display: block;
   text-align: right;
-  color: #999999; /* Light gray color for time */
+  color: #999999; 
 }
 
 /* send message */
@@ -162,34 +162,34 @@ body {
   bottom: 0px;
   width: 100%;
   padding: 20px 30px;
-  background-color: #ffffff; /* White background for input area */
+  background-color: #ffffff;
   display: flex;
 }
 .send-message > input {
   height: 40px;
   padding: 10px 10px;
   border-radius: 5px 0 0 5px;
-  border: 1px solid #dddddd; /* Light gray border */
+  border: 1px solid #dddddd; 
   flex-grow: 1;
-  background-color: #f1f1f1; /* Light gray input background */
-  color: #303030; /* Dark text color */
+  background-color: #f1f1f1; 
+  color: #303030; 
   font-size: 1rem;
 }
 .send-message > input:placeholder {
-  color: #999999; /* Placeholder color */
+  color: #999999; 
 }
 .send-message > :is(input, button):focus {
   outline: none;
-  border-bottom: 1px solid #075e54; /* WhatsApp green underline */
+  border-bottom: 1px solid #075e54; 
 }
 .send-message > button {
   width: 70px;
   height: 40px;
   padding: 5px 10px;
   border-radius: 0 5px 5px 0;
-  color: #ffffff; /* White text color */
-  border: 1px solid #075e54; /* WhatsApp green border */
-  background-color: #25d366; /* WhatsApp lighter green */
+  color: #ffffff; 
+  border: 1px solid #075e54; 
+  background-color: #25d366; 
   font-weight: 600;
 }
 
@@ -295,64 +295,38 @@ body {
   }
 }
 
-/* .react-pdf__Page {
-  width: 0;
-} */
-/*
-.react-pdf__Page__textContent {
-  border: 1px solid darkgrey;
-  box-shadow: 5px 5px 5px 1px #ccc;
-  border-radius: 5px;
-}
-
-.react-pdf__Page__annotations.annotationLayer {
-  padding: 20px;
-} */
-
-/* .react-pdf__Page__canvas {
-  margin: 0 auto;
-} */
-
-/* .react-pdf__Page {
-  width: 70%;
-} */
-
-/* .react-pdf__Document.document {
-  width: 0;
-} */
-
 
 /* flip card */
 
-/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+
 .flip-card {
-  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  perspective: 1000px; 
 }
 
-/* This container is needed to position the front and back side */
+
 .flip-card-inner {
   transition: transform 0.8s;
   transform-style: preserve-3d;
 }
 
-/* Do an horizontal flip when you move the mouse over the flip box container */
+
 .flip-card:hover .flip-card-inner {
   transform: rotateY(180deg);
 }
 
-/* Position the front and back side */
+
 .flip-card-front, .flip-card-back {
-  -webkit-backface-visibility: hidden; /* Safari */
+  -webkit-backface-visibility: hidden; 
   backface-visibility: hidden;
 }
 
-/* Style the front side (fallback if image is missing) */
+
 .flip-card-front {
   background-color: #bbb;
   color: black;
 }
 
-/* Style the back side */
+
 .flip-card-back {
   transform: rotateY(180deg);
 }

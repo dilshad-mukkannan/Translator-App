@@ -38,7 +38,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
                 </button>
                 <nav className="mt-4 space-y-2">
                     <ul>
-                        <li>
+                        <li className="border-b">
                             <Link
                                 to="/pdf-viewer"
                                 className="block p-2 rounded hover:bg-gray-200"
@@ -47,7 +47,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
                                 PDF Viewer
                             </Link>
                         </li>
-                        <li>
+                        <li className="border-b">
                             <Link
                                 to="/chat"
                                 className="block p-2 rounded hover:bg-gray-200"
@@ -56,7 +56,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
                                 Chat
                             </Link>
                         </li>
-                        <li>
+                        <li className="border-b">
                             <Link
                                 to="/image-extractor"
                                 className="block p-2 rounded hover:bg-gray-200"
@@ -65,7 +65,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
                                 Image Extractor
                             </Link>
                         </li>
-                        <li>
+                        <li className="border-b">
                             <Link
                                 to="/translator"
                                 className="block p-2 rounded hover:bg-gray-200"
